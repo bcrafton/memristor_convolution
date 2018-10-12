@@ -22,7 +22,7 @@ Rs = []
 
 for t in Ts:
     
-    if t < np.pi:
+    if t < np.pi / 2.:
         V = 1 * np.sin(t)
     else:
         V = 0.
@@ -41,9 +41,21 @@ for t in Ts:
     
     print ("V", V, "I", I, "R", R, "W", W, "F", F, "dw", dwdt * dt)
     
+fig = plt.figure(figsize=(15, 15))
+
+plt.subplot(3, 1, 1)
+plt.plot(Ts, Vs)
+plt.xlabel('Time', fontdict={'size':18})
+plt.ylabel('Voltage', fontdict={'size':18})
+    
+plt.subplot(3, 1, 2)
 plt.plot(Ts, Rs)
-# plt.plot(Ts, Vs)
+plt.xlabel('Time', fontdict={'size':18})
+plt.ylabel('Resistance', fontdict={'size':18})
 
-print (np.max(Vs), np.min(Vs))
+plt.subplot(3, 1, 3)
+plt.plot(Vs, Is)
+plt.xlabel('Voltage', fontdict={'size':18})
+plt.ylabel('Current', fontdict={'size':18})
 
-plt.show()
+plt.savefig('memristor_plots.png')
