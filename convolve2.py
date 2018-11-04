@@ -42,11 +42,19 @@ kernel = np.array([[1,0,-1],[2,0,-2],[1,0,-1]])
 conv_img = np.zeros(shape=(28, 28))
 for ii in range(3):
     for jj in range(3):
-        print (ii)
-        print (jj)
-        print (np.shape(img[ii:28+ii, jj:28+jj]))
+        # print (ii)
+        # print (jj)
+        # print (np.shape(img[ii:28+ii, jj:28+jj]))
         
         conv_img += kernel[ii][jj] * img[ii:28+ii, jj:28+jj]
+        # print (img[ii:28+ii, jj:28+jj][11, 14])
+       
+print ("kernel") 
+print (kernel)
+print ("pixels")
+print (img[11:14, 14:17])
+print ("result")
+print (conv_img[11, 14])
 
 plt.imshow(conv_img, cmap=plt.cm.gray)
 plt.show()
